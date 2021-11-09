@@ -16,6 +16,11 @@
 				users: [],
 			};
 		},
+		computed: {
+			currentUser() {
+				return this.$store.state.auth.user;
+			},
+		},
 		methods: {
 			retrieveUsers() {
 				UserDataService.getAll()
@@ -28,6 +33,9 @@
 			},
 		},
 		mounted() {
+			if (!this.currentUser) {
+				this.$router.push("/login");
+			}
 			this.retrieveUsers();
 		},
 	};

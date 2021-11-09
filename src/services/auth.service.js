@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import http from "../http-common";
 
 class AuthService {
@@ -10,7 +8,7 @@ class AuthService {
 				password: user.password,
 			})
 			.then((response) => {
-				if (response.data.access) {
+				if (response.data.access && response.data.is_staff) {
 					localStorage.setItem("user", JSON.stringify(response.data));
 				}
 				return response.data;
