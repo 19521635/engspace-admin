@@ -3,18 +3,38 @@ import { createWebHistory, createRouter } from "vue-router";
 const routes = [
 	{
 		path: "/",
+		name: "home",
+		component: () => import("./pages/Home"),
+	},
+	{
+		path: "/users",
 		name: "users",
-		component: () => import("./components/Users/UsersList"),
+		component: () => import("./pages/ManageUser"),
+	},
+	{
+		path: "/sets",
+		name: "sets",
+		component: () => import("./pages/ManageSet"),
+	},
+	{
+		path: "/folders",
+		name: "folders",
+		component: () => import("./pages/ManageFolder"),
+	},
+	{
+		path: "/topics",
+		name: "topics",
+		component: () => import("./pages/ManageTopic"),
 	},
 	{
 		path: "/login",
 		name: "login",
-		component: () => import("./components/Login"),
+		component: () => import("./pages/Login"),
 	},
 	{
 		path: "/logout",
 		name: "logout",
-		component: () => import("./components/Logout"),
+		component: () => import("./pages/Logout"),
 	},
 ];
 

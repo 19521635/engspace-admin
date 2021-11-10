@@ -1,16 +1,22 @@
 <template>
-	<ul>
-		<li v-for="(user, index) in users" :key="index">
-			{{ user.username }}
-		</li>
-	</ul>
+	<layout-default>
+		<ul>
+			<li v-for="(user, index) in users" :key="index">
+				{{ user.username }}
+			</li>
+		</ul>
+	</layout-default>
 </template>
 
 <script>
 	import UserDataService from "../../services/user.service";
+	import LayoutDefault from "../../layouts/LayoutDefault";
 
 	export default {
 		name: "users-list",
+		components: {
+			LayoutDefault,
+		},
 		data() {
 			return {
 				users: [],

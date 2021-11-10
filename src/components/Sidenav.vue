@@ -1,0 +1,110 @@
+<template>
+	<nav id="sidebar" class="bg-white">
+		<div class="sidebar-header d-flex align-items-end justify-content-center">
+			<h2 class="font-weight-bold">EngSpace</h2>
+			<span class="red-icon"></span>
+		</div>
+		<ul class="list-unstyled mt-5 mr-3">
+			<li class="active">
+				<router-link to="/" active-link="active"><font-awesome-icon icon="home" size="lg" />Trang chủ</router-link>
+			</li>
+			<li>
+				<router-link to="/sets" active-link="active"><font-awesome-icon icon="layer-group" size="lg" />Quản lý học phần</router-link>
+			</li>
+			<li>
+				<router-link to="/folders" active-link="active"><font-awesome-icon icon="folder-open" size="lg" />Quản lý thư mục</router-link>
+			</li>
+			<li>
+				<router-link to="/topics" active-link="active"><font-awesome-icon icon="tags" size="lg" />Quản lý chủ đề</router-link>
+			</li>
+			<li>
+				<router-link to="/users" active-link="active"><font-awesome-icon icon="users" size="lg" />Quản lý người dùng</router-link>
+			</li>
+			<li>
+				<router-link to="/settings" active-link="active"><font-awesome-icon icon="cog" size="lg" />Cài đặt mở rộng</router-link>
+			</li>
+		</ul>
+		<div class="admin-card position-absolute w-100 d-flex flex-row align-items-center">
+			<div class="admin-ava overflow-hidden rounded-circle">
+				<img src="/img/avatar.jpg" alt="avatar" class="w-100 h-100" />
+			</div>
+			<div class="d-flex flex-column ml-3">
+				<p class="mb-0 font-weight-bold">{{ user && user.username }}</p>
+				<p class="mb-0 admin-description">Tài khoản Admin</p>
+			</div>
+			<a href="/logout" class="ml-3 logout-icon"><font-awesome-icon icon="sign-out-alt" /></a>
+		</div>
+	</nav>
+</template>
+
+<script>
+	export default {
+		name: "sidenav",
+		props: ["currentUser"],
+		data() {
+			return {
+				user: this.currentUser,
+			};
+		},
+	};
+</script>
+
+<style lang="css" scoped>
+	a {
+		text-decoration: none;
+	}
+	li > a {
+		color: #808191;
+		white-space: nowrap;
+		display: block;
+		padding: 20px;
+	}
+	li > a.router-link-active {
+		color: white;
+	}
+	li > a.router-link-active {
+		background-color: #2673d1;
+		border-top-right-radius: 20px;
+		border-bottom-right-radius: 20px;
+	}
+	svg {
+		margin-right: 10px;
+	}
+	#sidebar {
+		min-width: 250px;
+		max-width: 250px;
+		height: 100vh;
+		border-right: 1px solid #e4e4e4;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 999;
+	}
+	.sidebar-header {
+		margin-top: 20px;
+	}
+	.red-icon {
+		border-radius: 50%;
+		width: 8px;
+		height: 8px;
+		background-color: rgb(253, 92, 92);
+		right: 0;
+		bottom: 0;
+		margin-bottom: 14px;
+	}
+	.admin-card {
+		padding: 20px;
+		bottom: 0;
+		left: 0;
+	}
+	.admin-ava {
+		width: 40px;
+		height: 40px;
+	}
+	.admin-description {
+		font-size: 0.875rem;
+	}
+	.logout-icon {
+		color: rgb(240, 133, 133);
+	}
+</style>
