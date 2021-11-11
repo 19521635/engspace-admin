@@ -1,5 +1,5 @@
 <template>
-	<nav id="sidebar" class="bg-white">
+	<nav id="sidebar" class="bg-white d-none d-md-block">
 		<div class="sidebar-header d-flex align-items-end justify-content-center">
 			<h2 class="font-weight-bold">EngSpace</h2>
 			<span class="red-icon"></span>
@@ -71,8 +71,7 @@
 		margin-right: 10px;
 	}
 	#sidebar {
-		min-width: 250px;
-		max-width: 250px;
+		width: 15.625rem;
 		height: 100vh;
 		border-right: 1px solid #e4e4e4;
 		position: fixed;

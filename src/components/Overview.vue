@@ -17,21 +17,36 @@
 		<div class="ads position-absolute"></div>
 		<div class="ads position-absolute"></div>
 	</div>
-	<div class="mt-5 summary">
+	<div class="mt-4 summary">
 		<p class="font-weight-bold h5">Một số thông tin chung</p>
 		<div class="container">
 			<div class="row">
-				<div class="bg-white shadow-lg col-4">
-					<p>Tổng số người dùng</p>
-					<p>{{ totalUsers }}</p>
+				<div class="col-12 col-md-4">
+					<div class="bg-white shadow p-3">
+						<p class="font-weight-bold mb-0">Tổng số người dùng</p>
+						<p class="">{{ totalUsers }}</p>
+						<div>
+							<img src="/img/graph.png" alt="graph" class="w-100" />
+						</div>
+					</div>
 				</div>
-				<div class="bg-white shadow-lg col-4">
-					<p>Tổng số người dùng</p>
-					<p>{{ totalUsers }}</p>
+				<div class="col-12 col-md-4">
+					<div class="bg-white shadow p-3">
+						<p class="font-weight-bold mb-0">Tổng số học phần</p>
+						<p class="">{{ totalUsers }}</p>
+						<div>
+							<img src="/img/graph.png" alt="graph" class="w-100" />
+						</div>
+					</div>
 				</div>
-				<div class="bg-white shadow-lg col-4">
-					<p>Tổng số người dùng</p>
-					<p>{{ totalUsers }}</p>
+				<div class="col-12 col-md-4">
+					<div class="bg-white shadow p-3">
+						<p class="font-weight-bold mb-0">Tổng số thư mục</p>
+						<p class="">{{ totalUsers }}</p>
+						<div>
+							<img src="/img/graph.png" alt="graph" class="w-100" />
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -40,6 +55,7 @@
 
 <script>
 	import UserDataService from "../services/user.service";
+
 	export default {
 		name: "overview",
 		props: ["currentUser"],
@@ -68,7 +84,7 @@
 
 <style lang="css" scoped>
 	.ads {
-		width: 520px;
+		width: 100%;
 		height: 315px;
 		border-radius: 20px;
 		background-color: #2673d1;
@@ -81,7 +97,7 @@
 		border-radius: 15px;
 	}
 	.ads:nth-child(2) {
-		width: 500px;
+		width: calc(100% - 1.25rem);
 		top: 0;
 		background-color: #2673d17c;
 		z-index: -1;
@@ -89,7 +105,7 @@
 		margin-left: 10px;
 	}
 	.ads:nth-child(3) {
-		width: 480px;
+		width: calc(100% - 2.5rem);
 		top: 0;
 		background-color: #2673d11c;
 		z-index: -2;
@@ -98,6 +114,5 @@
 	}
 	.summary .row div {
 		border-radius: 20px;
-		padding: 20px;
 	}
 </style>

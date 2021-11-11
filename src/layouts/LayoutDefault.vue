@@ -1,15 +1,20 @@
 <template>
-	<div class="wrapper d-flex w-100 align-items-stretch">
+	<div class="wrapper d-flex w-100">
 		<Sidenav :currentUser="currentUser" />
-		<div class="content">
-			<slot />
+		<div class="container content">
+			<div class="row">
+				<div class="col">
+					<slot />
+				</div>
+				<slot name="sidebar" class="col-auto" />
+			</div>
 		</div>
-		<slot name="sidebar" />
 	</div>
 </template>
 
 <script>
 	import Sidenav from "../components/Sidenav";
+
 	export default {
 		components: { Sidenav },
 		computed: {
@@ -30,7 +35,12 @@
 		min-height: 100vh;
 	}
 	.content {
+		background-color: #fdfdfd;
 		padding: 20px 30px;
-		margin-left: 250px;
+	}
+	@media (min-width: 768px) {
+		.content {
+			margin-left: 250px;
+		}
 	}
 </style>
