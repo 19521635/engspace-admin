@@ -20,8 +20,8 @@
 								{{ row[col] }}
 							</td>
 							<td>
-								<button class="btn btn-info btn-sm mr-md-1"><font-awesome-icon icon="pencil-alt" /></button>
-								<button class="btn btn-danger btn-sm"><font-awesome-icon icon="trash-alt" /></button>
+								<button class="btn btn-info btn-sm mr-md-1" aria-label="edit" v-on:click="editById(row['id'])"><font-awesome-icon icon="pencil-alt" /></button>
+								<button class="btn btn-danger btn-sm" aria-label="delete" v-on:click="deleteById(row['id'])"><font-awesome-icon icon="trash-alt" /></button>
 							</td>
 						</tr>
 					</tbody>
@@ -60,6 +60,12 @@
 					}
 					return 0;
 				});
+			},
+			deleteById: function (id) {
+				console.log(id + " deleted");
+			},
+			editById: function (id) {
+				console.log("edit " + id);
 			},
 		},
 		computed: {
