@@ -1,7 +1,7 @@
 import api from "./api";
 
 class UserDataService {
-	getAll() {
+	get() {
 		return api.get("/admin/users/");
 	}
 }

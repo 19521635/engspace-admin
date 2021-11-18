@@ -1,7 +1,7 @@
 import api from "./api";
 
 class TopicDataService {
-	getAll() {
+	get() {
 		return api.get("/admin/topics/");
 	}
 }
