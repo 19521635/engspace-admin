@@ -6,7 +6,7 @@
 				<div class="d-flex flex-row w-100 justify-content-end">
 					<div class="search d-flex flex-row justify-content-center align-items-center border py-1 px-2 mr-2 rounded">
 						<font-awesome-icon icon="search" />
-						<input type="text" placeholder="Tìm kiếm một vài thứ gì đó..." class="w-100" v-model="search" v-on:input="doSearch" />
+						<input type="text" placeholder="Tìm kiếm một vài thứ gì đó..." class="w-100" v-model.lazy="search" v-on:change="doSearch" />
 					</div>
 					<button class="btn btn-info">Thêm mới</button>
 				</div>

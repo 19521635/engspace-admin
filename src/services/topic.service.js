@@ -1,8 +1,8 @@
 import api from "./api";
 
 class TopicDataService {
-	get() {
-		return api.get("/admin/topics/");
+	get(keyword = "", page = "", page_size = "") {
+		return api.get("/admin/topics/?search=" + keyword + (page != "" ? "&page=" + page : "") + (page_size != "" ? "&page_size=" + page_size : ""));
 	}
 }
 

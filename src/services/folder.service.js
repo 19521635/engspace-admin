@@ -1,8 +1,8 @@
 import api from "./api";
 
 class FolderDataService {
-	get() {
-		return api.get("/admin/folders/");
+	get(keyword = "", page = "", page_size = "") {
+		return api.get("/admin/folders/?search=" + keyword + (page != "" ? "&page=" + page : "") + (page_size != "" ? "&page_size=" + page_size : ""));
 	}
 }
 
