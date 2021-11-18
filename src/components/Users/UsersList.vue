@@ -29,7 +29,7 @@
 		},
 		methods: {
 			retrieveUsers() {
-				UserDataService.getAll()
+				UserDataService.get()
 					.then((response) => {
 						this.users = response.data.results;
 					})

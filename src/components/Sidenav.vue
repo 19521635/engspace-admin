@@ -1,11 +1,11 @@
 <template>
-	<nav id="sidebar" class="bg-white d-none d-md-block">
+	<nav id="sidebar" class="bg-white">
 		<div class="sidebar-header d-flex align-items-end justify-content-center">
 			<h2 class="font-weight-bold">EngSpace</h2>
 			<span class="red-icon"></span>
 		</div>
 		<ul class="list-unstyled mt-5 mr-3">
-			<li class="active">
+			<li>
 				<router-link to="/" active-link="active"><font-awesome-icon icon="home" size="lg" />Trang chủ</router-link>
 			</li>
 			<li>
@@ -32,7 +32,6 @@
 				<p class="mb-0 font-weight-bold">{{ user && user.username }}</p>
 				<p class="mb-0 admin-description">Tài khoản Admin</p>
 			</div>
-			<a href="/logout" class="ml-3 logout-icon"><font-awesome-icon icon="sign-out-alt" /></a>
 		</div>
 	</nav>
 </template>
@@ -58,12 +57,12 @@
 		white-space: nowrap;
 		display: block;
 		padding: 20px;
+		background-color: transparent;
+		transition: all 1s linear;
 	}
 	li > a.router-link-active {
 		color: white;
-	}
-	li > a.router-link-active {
-		background-color: #2673d1;
+		background-color: #17a2b8;
 		border-top-right-radius: 20px;
 		border-bottom-right-radius: 20px;
 	}
@@ -78,7 +77,20 @@
 		top: 0;
 		left: 0;
 		z-index: 999;
+		transition: all 0.3s;
 	}
+	#sidebar.active {
+		margin-left: -15.625rem;
+	}
+	@media (max-width: 768px) {
+		#sidebar {
+			margin-left: -15.625rem;
+		}
+		#sidebar.active {
+			margin-left: 0;
+		}
+	}
+
 	.sidebar-header {
 		margin-top: 20px;
 	}
@@ -102,8 +114,5 @@
 	}
 	.admin-description {
 		font-size: 0.875rem;
-	}
-	.logout-icon {
-		color: rgb(240, 133, 133);
 	}
 </style>
