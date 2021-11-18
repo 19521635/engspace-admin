@@ -1,5 +1,5 @@
 <template>
-	<nav id="sidebar" class="bg-white">
+	<nav id="sidebar" class="bg-white d-flex flex-column">
 		<div class="sidebar-header d-flex align-items-end justify-content-center">
 			<h2 class="font-weight-bold">EngSpace</h2>
 			<span class="red-icon"></span>
@@ -24,7 +24,7 @@
 				<router-link to="/settings" active-link="active"><font-awesome-icon icon="cog" size="lg" />Cài đặt mở rộng</router-link>
 			</li>
 		</ul>
-		<div class="admin-card position-absolute w-100 d-flex flex-row align-items-center">
+		<div class="admin-card w-100 d-flex flex-row align-self-end mt-auto">
 			<div class="admin-ava overflow-hidden rounded-circle">
 				<img src="/img/avatar.jpg" alt="avatar" class="w-100 h-100" />
 			</div>
@@ -78,6 +78,7 @@
 		left: 0;
 		z-index: 999;
 		transition: all 0.3s;
+		overflow-y: auto;
 	}
 	#sidebar.active {
 		margin-left: -15.625rem;
@@ -105,8 +106,6 @@
 	}
 	.admin-card {
 		padding: 20px;
-		bottom: 0;
-		left: 0;
 	}
 	.admin-ava {
 		width: 40px;
