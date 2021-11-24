@@ -21,7 +21,7 @@
 							</td>
 							<td>
 								<button class="btn btn-info btn-sm mr-md-1" aria-label="edit" v-on:click="editById(row['id'])"><font-awesome-icon icon="pencil-alt" /></button>
-								<button class="btn btn-danger btn-sm" aria-label="delete" v-on:click="deleteById(row['id'])"><font-awesome-icon icon="trash-alt" /></button>
+								<button class="btn btn-danger btn-sm" aria-label="delete" v-on:click="deleteId(row['id'])"><font-awesome-icon icon="trash-alt" /></button>
 							</td>
 						</tr>
 					</tbody>
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+	// import SetDataService from "../services/set.service";
 	export default {
 		name: "Table",
 		props: ["list", "listDisplay"],
@@ -61,8 +62,9 @@
 					return 0;
 				});
 			},
-			deleteById: function (id) {
+			deleteId(id) {
 				console.log(id + " deleted");
+				this.$emit("deleteById", id);
 			},
 			editById: function (id) {
 				console.log("edit " + id);

@@ -6,19 +6,19 @@
 		</div>
 		<ul class="list-unstyled mt-5 mr-3">
 			<li>
-				<router-link to="/" active-link="active"><font-awesome-icon icon="home" size="lg" />Trang chủ</router-link>
+				<router-link :to="{ name: 'home' }" active-link="active"><font-awesome-icon icon="home" size="lg" />Trang chủ</router-link>
 			</li>
 			<li>
-				<router-link to="/sets" active-link="active"><font-awesome-icon icon="layer-group" size="lg" />Quản lý học phần</router-link>
+				<router-link :to="{ name: 'sets' }" :class="{ 'router-link-active': $route.name === 'sets_detail' }" active-link="active"><font-awesome-icon icon="layer-group" size="lg" />Quản lý học phần</router-link>
 			</li>
 			<li>
-				<router-link to="/folders" active-link="active"><font-awesome-icon icon="folder-open" size="lg" />Quản lý thư mục</router-link>
+				<router-link :to="{ name: 'folders' }" active-link="active"><font-awesome-icon icon="folder-open" size="lg" />Quản lý thư mục</router-link>
 			</li>
 			<li>
-				<router-link to="/topics" active-link="active"><font-awesome-icon icon="tags" size="lg" />Quản lý chủ đề</router-link>
+				<router-link :to="{ name: 'topics' }" active-link="active"><font-awesome-icon icon="tags" size="lg" />Quản lý chủ đề</router-link>
 			</li>
 			<li>
-				<router-link to="/users" active-link="active"><font-awesome-icon icon="users" size="lg" />Quản lý người dùng</router-link>
+				<router-link :to="{ name: 'users' }" active-link="active"><font-awesome-icon icon="users" size="lg" />Quản lý người dùng</router-link>
 			</li>
 			<li>
 				<router-link to="/settings" active-link="active"><font-awesome-icon icon="cog" size="lg" />Cài đặt mở rộng</router-link>

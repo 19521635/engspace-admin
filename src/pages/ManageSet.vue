@@ -11,7 +11,7 @@
 					<button class="btn btn-info">Thêm mới</button>
 				</div>
 			</div>
-			<Table :list="rows" :listDisplay="['id', 'name', 'description']" v-if="rows.length"></Table>
+			<Table :list="rows" @deleteById="deleteById" :listDisplay="['id', 'name', 'description']" v-if="rows.length"></Table>
 			<nav aria-label="Page navigation" class="d-flex justify-content-end">
 				<ul class="pagination">
 					<li class="page-item" :class="{ disabled: currentPage == 1 }" v-on:click="currentPage == 1 ? setCurrentPage(1) : setCurrentPage(currentPage - 1)"><a class="page-link" href="#">Previous</a></li>
@@ -70,6 +70,18 @@
 			doSearch() {
 				this.currentPage = 1;
 				this.retrieveSets();
+			},
+			deleteById(id) {
+				let i = this.rows.map((item) => item.id).indexOf(id);
+				this.rows.splice(i, 1);
+				// SetDataService.delete(id)
+				// 	.then(() => {
+				// 		let i = this.rows.map((item) => item.id).indexOf(id);
+				// 		this.rows.splice(i, 1);
+				// 	})
+				// 	.catch((err) => {
+				// 		console.log(err);
+				// 	});
 			},
 		},
 		mounted() {
