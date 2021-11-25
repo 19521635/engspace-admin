@@ -20,7 +20,7 @@
 								{{ row[col] }}
 							</td>
 							<td>
-								<button class="btn btn-info btn-sm mr-md-1" aria-label="edit" v-on:click="editById(row['id'])"><font-awesome-icon icon="pencil-alt" /></button>
+								<button class="btn btn-info btn-sm mr-md-1" aria-label="edit" v-on:click="editId(row['id'])"><font-awesome-icon icon="pencil-alt" /></button>
 								<button class="btn btn-danger btn-sm" aria-label="delete" v-on:click="deleteId(row['id'])"><font-awesome-icon icon="trash-alt" /></button>
 							</td>
 						</tr>
@@ -66,8 +66,9 @@
 				console.log(id + " deleted");
 				this.$emit("deleteById", id);
 			},
-			editById: function (id) {
-				console.log("edit " + id);
+			editId: function (id) {
+				console.log(id + " edit");
+				this.$emit("editById", id);
 			},
 		},
 		computed: {

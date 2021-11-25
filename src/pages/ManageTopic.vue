@@ -8,10 +8,10 @@
 						<font-awesome-icon icon="search" />
 						<input type="text" placeholder="Tìm kiếm một vài thứ gì đó..." class="w-100" v-model.lazy="search" v-on:change="doSearch" />
 					</div>
-					<button class="btn btn-info">Thêm mới</button>
+					<button class="btn btn-info" @click="$router.push({ name: 'add_topic' })">Thêm mới</button>
 				</div>
 			</div>
-			<Table :list="rows" :listDisplay="['id', 'name', 'description']" v-if="rows.length"></Table>
+			<Table :list="rows" @deleteById="deleteById" @editById="editById" :listDisplay="['id', 'name', 'description']" v-if="rows.length"></Table>
 			<nav aria-label="Page navigation" class="d-flex justify-content-end">
 				<ul class="pagination">
 					<li class="page-item" :class="{ disabled: currentPage == 1 }" v-on:click="currentPage == 1 ? setCurrentPage(1) : setCurrentPage(currentPage - 1)"><a class="page-link" href="#">Previous</a></li>
@@ -70,6 +70,21 @@
 			doSearch() {
 				this.currentPage = 1;
 				this.retrieveTopics();
+			},
+			deleteById(id) {
+				let i = this.rows.map((item) => item.id).indexOf(id);
+				this.rows.splice(i, 1);
+				// TopicDataService.delete(id)
+				// 	.then(() => {
+				// 		let i = this.rows.map((item) => item.id).indexOf(id);
+				// 		this.rows.splice(i, 1);
+				// 	})
+				// 	.catch((err) => {
+				// 		console.log(err);
+				// 	});
+			},
+			editById(id) {
+				this.$router.push("/topics/" + id + "/");
 			},
 		},
 		mounted() {

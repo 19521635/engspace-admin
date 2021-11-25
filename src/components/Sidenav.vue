@@ -9,16 +9,16 @@
 				<router-link :to="{ name: 'home' }" active-link="active"><font-awesome-icon icon="home" size="lg" />Trang chủ</router-link>
 			</li>
 			<li>
-				<router-link :to="{ name: 'sets' }" :class="{ 'router-link-active': $route.name === 'sets_detail' }" active-link="active"><font-awesome-icon icon="layer-group" size="lg" />Quản lý học phần</router-link>
+				<router-link :to="{ name: 'sets' }" :class="{ 'router-link-active': $route.name === 'set_detail' || $route.name === 'add_set' }" active-link="active"><font-awesome-icon icon="layer-group" size="lg" />Quản lý học phần</router-link>
 			</li>
 			<li>
-				<router-link :to="{ name: 'folders' }" active-link="active"><font-awesome-icon icon="folder-open" size="lg" />Quản lý thư mục</router-link>
+				<router-link :to="{ name: 'folders' }" :class="{ 'router-link-active': $route.name === 'folder_detail' || $route.name === 'add_folder' }" active-link="active"><font-awesome-icon icon="folder-open" size="lg" />Quản lý thư mục</router-link>
 			</li>
 			<li>
-				<router-link :to="{ name: 'topics' }" active-link="active"><font-awesome-icon icon="tags" size="lg" />Quản lý chủ đề</router-link>
+				<router-link :to="{ name: 'topics' }" :class="{ 'router-link-active': $route.name === 'topic_detail' || $route.name === 'add_topic' }" active-link="active"><font-awesome-icon icon="tags" size="lg" />Quản lý chủ đề</router-link>
 			</li>
 			<li>
-				<router-link :to="{ name: 'users' }" active-link="active"><font-awesome-icon icon="users" size="lg" />Quản lý người dùng</router-link>
+				<router-link :to="{ name: 'users' }" :class="{ 'router-link-active': $route.name === 'user_detail' || $route.name === 'add_user' }" active-link="active"><font-awesome-icon icon="users" size="lg" />Quản lý người dùng</router-link>
 			</li>
 			<li>
 				<router-link to="/settings" active-link="active"><font-awesome-icon icon="cog" size="lg" />Cài đặt mở rộng</router-link>
@@ -58,7 +58,7 @@
 		display: block;
 		padding: 20px;
 		background-color: transparent;
-		transition: all 1s linear;
+		transition: all 0.3s;
 	}
 	li > a.router-link-active {
 		color: white;
