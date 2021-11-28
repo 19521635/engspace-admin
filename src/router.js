@@ -67,6 +67,37 @@ const routes = [
 		component: () => import("./pages/EditTopic"),
 	},
 	{
+		path: "/posts",
+		name: "posts",
+		component: () => import("./pages/ManagePost"),
+	},
+	{
+		path: "/posts/add/",
+		name: "add_post",
+		component: () => import("./pages/AddPost"),
+	},
+	{
+		path: "/posts/:id/",
+		name: "post_detail",
+		component: () => import("./pages/EditPost"),
+	},
+
+	{
+		path: "/comments",
+		name: "comments",
+		component: () => import("./pages/ManageComment"),
+	},
+	{
+		path: "/comments/add/",
+		name: "add_comment",
+		component: () => import("./pages/AddComment"),
+	},
+	{
+		path: "/comments/:id/",
+		name: "comment_detail",
+		component: () => import("./pages/EditComment"),
+	},
+	{
 		path: "/settings",
 		name: "settings",
 		component: () => import("./pages/Setting"),

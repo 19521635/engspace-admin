@@ -21,7 +21,10 @@
 				<router-link :to="{ name: 'users' }" :class="{ 'router-link-active': $route.name === 'user_detail' || $route.name === 'add_user' }" active-link="active"><font-awesome-icon icon="users" size="lg" />Quản lý người dùng</router-link>
 			</li>
 			<li>
-				<router-link to="/settings" active-link="active"><font-awesome-icon icon="cog" size="lg" />Cài đặt mở rộng</router-link>
+				<router-link :to="{ name: 'posts' }" :class="{ 'router-link-active': $route.name === 'post_detail' || $route.name === 'add_post' }" active-link="active"><font-awesome-icon icon="newspaper" size="lg" />Quản lý bài viết</router-link>
+			</li>
+			<li>
+				<router-link :to="{ name: 'comments' }" :class="{ 'router-link-active': $route.name === 'comment_detail' || $route.name === 'add_comment' }" active-link="active"><font-awesome-icon icon="comments" size="lg" />Quản lý bình luận</router-link>
 			</li>
 		</ul>
 		<div class="admin-card w-100 d-flex flex-row align-self-end mt-auto">

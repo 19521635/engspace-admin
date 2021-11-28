@@ -13,7 +13,7 @@
 		<div class="ads position-absolute"></div>
 		<div class="ads position-absolute"></div>
 	</div>
-	<div class="mt-4 summary">
+	<div class="mt-5 summary">
 		<p class="font-weight-bold h5">Một số thông tin chung</p>
 		<div class="container">
 			<div class="row">

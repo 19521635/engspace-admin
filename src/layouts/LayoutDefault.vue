@@ -4,7 +4,7 @@
 		<div class="container-fluid content" :class="{ active: showSidenav }">
 			<nav class="navbar navbar-top navbar-expand-lg navbar-light bg-light shadow-sm mb-3">
 				<div class="container-fluid">
-					<button v-on:click="toggleSidenav" type="button" id="sidebarCollapse" class="btn btn-info">
+					<button v-on:click="toggleSidenav" type="button" id="sidebarCollapse" class="btn btn-info" aria-label="ToggleSidenav">
 						<font-awesome-icon icon="align-left" class="mr-1" />
 					</button>
 					<button id="noti-btn" class="btn bg-white rounded-circle noti-icon shadow-sm ml-auto position-relative">

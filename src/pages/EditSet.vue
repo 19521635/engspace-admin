@@ -4,7 +4,7 @@
 			<div class="col-12 col-xl-8 mb-3 mb-xl-0">
 				<div class="card-content overflow-hidden p-4 shadow-sm">
 					<div class="d-flex flex-row align-items-center mb-4">
-						<button class="btn" @click="$router.go(-1)"><font-awesome-icon icon="long-arrow-alt-left" size="lg" /></button>
+						<button aria-label="Back" class="btn" @click="$router.go(-1)"><font-awesome-icon icon="long-arrow-alt-left" size="lg" /></button>
 						<h4 class="ml-2 mb-0 font-weight-bold">Chỉnh sửa học phần</h4>
 					</div>
 					<div>
@@ -48,6 +48,18 @@
 								</div>
 							</div>
 							<button type="submit" class="btn btn-info ml-auto mr-0 d-block">Cập nhật</button>
+							<div class="alert alert-success mt-2 alert-dismissible fade show" role="alert" v-if="isSuccess">
+								Cập nhật thành công
+								<button type="button" class="close" @click="closeSuccess" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="alert alert-danger mt-2 alert-dismissible" role="alert" v-if="isFailed">
+								Cập nhật thất bại
+								<button type="button" class="close" @click="closeFailed" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
 						</form>
 					</div>
 				</div>
@@ -110,6 +122,8 @@
 		},
 		data() {
 			return {
+				isSuccess: false,
+				isFailed: false,
 				set_id: this.$route.params.id,
 				form: {
 					id: 0,
@@ -143,8 +157,10 @@
 					.then((response) => {
 						this.row = response.data;
 						this.form = this.row;
+						this.isSuccess = true;
 					})
 					.catch((err) => {
+						this.isFailed = true;
 						console.log(err);
 					});
 			},
@@ -186,6 +202,12 @@
 					.catch((err) => {
 						console.log(err);
 					});
+			},
+			closeSuccess() {
+				this.isSuccess = false;
+			},
+			closeFailed() {
+				this.isFailed = false;
 			},
 		},
 		mounted() {

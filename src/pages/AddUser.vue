@@ -4,7 +4,7 @@
 			<div class="col-12 col-xl-8 mb-3 mb-xl-0">
 				<div class="card-content overflow-hidden p-4 shadow-sm">
 					<div class="d-flex flex-row align-items-center mb-4">
-						<button class="btn" @click="$router.go(-1)"><font-awesome-icon icon="long-arrow-alt-left" size="lg" /></button>
+						<button aria-label="Back" class="btn" @click="$router.go(-1)"><font-awesome-icon icon="long-arrow-alt-left" size="lg" /></button>
 						<h4 class="ml-2 mb-0 font-weight-bold">Thêm chủ đề</h4>
 					</div>
 					<div>
@@ -15,7 +15,7 @@
 							</div>
 							<div class="mb-3">
 								<label for="lastnameInput" class="form-label">Tên họ:</label>
-								<textarea placeholder="Nhập tên họ" class="form-control" id="lastnameInput" rows="3" v-model="form.last_name" />
+								<input type="text" class="form-control" id="lastnameInput" v-model="form.last_name" />
 							</div>
 							<div class="mb-3">
 								<label for="firstnameInput" class="form-label">Tên:</label>

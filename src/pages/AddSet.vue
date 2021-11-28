@@ -4,7 +4,7 @@
 			<div class="col-12 col-xl-8 mb-3 mb-xl-0">
 				<div class="card-content overflow-hidden p-4 shadow-sm">
 					<div class="d-flex flex-row align-items-center mb-4">
-						<button class="btn" @click="$router.go(-1)"><font-awesome-icon icon="long-arrow-alt-left" size="lg" /></button>
+						<button aria-label="Back" class="btn" @click="$router.go(-1)"><font-awesome-icon icon="long-arrow-alt-left" size="lg" /></button>
 						<h4 class="ml-2 mb-0 font-weight-bold">Thêm học phần</h4>
 					</div>
 					<div>

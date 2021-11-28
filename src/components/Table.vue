@@ -2,14 +2,14 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="table-content w-100">
-				<table id="fifthTable" class="table table-hover">
+				<table id="fifthTable" class="table table-hover table-responsive-lg">
 					<thead>
 						<tr>
 							<th v-for="col in columns" v-on:click="sortTable(col)" v-bind:key="col" scope="col">
 								{{ col }}
 								<div class="arrow" v-if="col == sortColumn" v-bind:class="ascending ? 'arrow_up' : 'arrow_down'"></div>
 							</th>
-							<th scope="col">
+							<th scope="col" class="text-center">
 								<div>action</div>
 							</th>
 						</tr>
@@ -17,9 +17,14 @@
 					<tbody>
 						<tr v-for="row in rows" v-bind:key="row">
 							<td v-for="col in columns" v-bind:key="row[col]">
-								{{ row[col] }}
+								<div v-if="col.includes('date_')">
+									{{ formatDate(row[col]) }}
+								</div>
+								<div v-bind:class="[{ 'font-weight-bold': col === 'id' }]" v-else>
+									{{ row[col] }}
+								</div>
 							</td>
-							<td>
+							<td class="text-center">
 								<button class="btn btn-info btn-sm mr-md-1" aria-label="edit" v-on:click="editId(row['id'])"><font-awesome-icon icon="pencil-alt" /></button>
 								<button class="btn btn-danger btn-sm" aria-label="delete" v-on:click="deleteId(row['id'])"><font-awesome-icon icon="trash-alt" /></button>
 							</td>
@@ -32,7 +37,8 @@
 </template>
 
 <script>
-	// import SetDataService from "../services/set.service";
+	import moment from "moment";
+
 	export default {
 		name: "Table",
 		props: ["list", "listDisplay"],
@@ -69,6 +75,11 @@
 			editId: function (id) {
 				console.log(id + " edit");
 				this.$emit("editById", id);
+			},
+			formatDate(value) {
+				if (value) {
+					return moment(String(value)).format("hh:mm DD-MM-YYYY");
+				}
 			},
 		},
 		computed: {
