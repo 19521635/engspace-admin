@@ -1,6 +1,6 @@
 <template>
 	<div class="position-relative mt-4">
-		<div class="ads d-flex flex-row">
+		<div class="ads d-flex flex-column flex-sm-row">
 			<div class="d-flex">
 				<img src="/img/overview.png" alt="overview" />
 			</div>
