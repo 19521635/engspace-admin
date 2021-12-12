@@ -5,13 +5,13 @@
 				<div class="card-content overflow-hidden p-4 shadow-sm">
 					<div class="d-flex flex-row align-items-center mb-4">
 						<button aria-label="Back" class="btn" @click="$router.go(-1)"><font-awesome-icon icon="long-arrow-alt-left" size="lg" /></button>
-						<h4 class="ml-2 mb-0 font-weight-bold">Thêm chủ đề</h4>
+						<h4 class="ml-2 mb-0 font-weight-bold">Thêm thư mục</h4>
 					</div>
 					<div>
 						<form v-on:submit.prevent="submitForm" spellcheck="false">
 							<div class="mb-3">
-								<label for="nameInput" class="form-label">Tên chủ đề:</label>
-								<input type="text" placeholder="Nhập tên chủ đề" class="form-control" id="nameInput" v-model="form.name" />
+								<label for="nameInput" class="form-label">Tên thư mục:</label>
+								<input type="text" placeholder="Nhập tên thư mục" class="form-control" id="nameInput" v-model="form.name" />
 							</div>
 							<div class="mb-3">
 								<label for="descriptionInput" class="form-label">Mô tả:</label>
@@ -35,7 +35,7 @@
 			<div class="col-12 col-xl-4">
 				<div class="card-content overflow-hidden p-4 shadow-sm">
 					<div class="d-flex flex-column mb-4">
-						<h4 class="ml-2 mb-0 font-weight-bold">Chủ đề thêm gần đây</h4>
+						<h4 class="ml-2 mb-0 font-weight-bold">Thư mục thêm gần đây</h4>
 					</div>
 					<div>
 						<div @click="$router.push({ name: 'folder_detail', params: { id: item.id } })" class="btn btn-light w-100 text-left mb-2 p-2" v-for="item in rows.slice().reverse()" v-bind:key="item">
