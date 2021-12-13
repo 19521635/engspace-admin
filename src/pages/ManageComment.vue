@@ -54,7 +54,7 @@
 			retrieveComments() {
 				CommentDataService.get(this.search, this.currentPage, this.pageSize)
 					.then((response) => {
-						this.totalPage = response.data.count / this.pageSize;
+						this.totalPage = Math.ceil(response.data.count / this.pageSize);
 						this.rows = response.data.results;
 					})
 					.catch((err) => {
