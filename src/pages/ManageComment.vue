@@ -72,16 +72,16 @@
 				this.retrieveComments();
 			},
 			deleteById(id) {
-				let i = this.rows.map((item) => item.id).indexOf(id);
-				this.rows.splice(i, 1);
-				// CommentDataService.delete(id)
-				// 	.then(() => {
-				// 		let i = this.rows.map((item) => item.id).indexOf(id);
-				// 		this.rows.splice(i, 1);
-				// 	})
-				// 	.catch((err) => {
-				// 		console.log(err);
-				// 	});
+				// let i = this.rows.map((item) => item.id).indexOf(id);
+				// this.rows.splice(i, 1);
+				CommentDataService.delete(id)
+					.then(() => {
+						let i = this.rows.map((item) => item.id).indexOf(id);
+						this.rows.splice(i, 1);
+					})
+					.catch((err) => {
+						console.log(err);
+					});
 			},
 			editById(id) {
 				this.$router.push("/comments/" + id + "/");
